@@ -1,0 +1,46 @@
+{
+  "name": "build-a-nightlife-coordination-app",
+  "version": "1.0.0",
+  "description": "A full stack JavaScript app that enables users to find venues where they live.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielknguyen/nightlifeapp.git"
+  },
+  "keywords": [
+    "html5",
+    "css3",
+    "javascript",
+    "jquery",
+    "mongodb",
+    "express.js",
+    "node.js"
+  ],
+  "author": "Mariapesma.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielknguyen/nightlifeapp/issues"
+  },
+  "homepage": "https://github.com/danielknguyen/nightlifeapp#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.12",
+    "morgan": "^1.9.0",
+    "nunjucks": "^3.1.2",
+    "util": "^0.10.3",
+    "yelp-fusion": "^2.0.3"
+  }
+}
