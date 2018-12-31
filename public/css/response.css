@@ -1,0 +1,114 @@
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  #bannerDiv {
+    padding: 100px 75px;
+  }
+  #bannerTitle {
+    font-size: 3em;
+  }
+  .bannerIcons {
+    font-size: 2em;
+  }
+  #bannerInfoDiv {
+    width: 100%;
+  }
+  #bannerInfo {
+    font-size: 1.5em;
+  }
+  form[name="searchFormIndex"] {
+    text-align: center;
+    margin: 25px 5px;
+    padding: 5px;
+  }
+  input[name="sIndex"] {
+    height: 50px;
+    width: 325px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-size: 20px;
+  }
+  .navigation-logo {
+    width: 40%;
+  }
+  .navigation-links-div {
+    width: 60%;
+  }
+  .searchedItemDiv {
+    width: 95%;
+    height: 300px;
+  }
+  .item-photo {
+    height: 125px;
+    padding: 5px;
+  }
+  .item-info {
+    height: 100px;
+    width: 45%;
+    padding: 5px;
+  }
+  .item-address {
+    height: 100px;
+    width: 35%;
+    padding: 5px;
+  }
+  .check-in {
+    width: 20%;
+    height: 100px;
+    float: left;
+    padding: 25px 5px;
+    text-align: center;
+  }
+  form[name="registerForm"], form[name="loginForm"], form[name="settingsForm"] {
+    width: 80%;
+  }
+  .ratings-stars-div {
+    margin-top: 25px;
+    height: 150px;
+  }
+  .stars-info-div {
+    position: relative;
+    top: 75%;
+    transform: translateY(-25%);
+  }
+  .noRsvpMsg {
+    width: 75%;
+    font-size: .9em;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .searchedItemDiv {
+    width: 85%;
+    height: 275px;
+  }
+  .item-photo {
+    height: 125px;
+    padding: 5px;
+  }
+  .item-info {
+    height: 100px;
+    width: 45%;
+    padding: 5px;
+  }
+  .item-address {
+    height: 100px;
+    width: 35%;
+    padding: 5px;
+  }
+  .check-in {
+    width: 20%;
+    height: 100px;
+    float: left;
+    padding: 25px 5px;
+    text-align: center;
+  }
+  .ratings-stars-div {
+    height: 150px;
+  }
+  .stars-info-div {
+    position: relative;
+    top: 75%;
+    transform: translateY(-25%);
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1999px) {
+
+}
