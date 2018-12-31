@@ -1,0 +1,89 @@
+{% extends "template.html" %}
+
+{% block header %}
+  <title>Pub View</title>
+{% endblock %}
+
+{% block content %}
+<div id="bannerDiv">
+  <p id="bannerTitle">Plans tonight?</p>
+  <div id="bannerIconDiv">
+    <span class="bannerIcons"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+    <span class="bannerIcons"><i class="fa fa-car" aria-hidden="true"></i></span>
+    <span class="bannerIcons"><i class="fa fa-glass" aria-hidden="true"></i></span>
+  </div>
+  <div id="bannerInfoDiv">
+    <p id="bannerInfo">See what venues around your area are poppin' tonight</p>
+    <p id="bannerReminder">Reminder: Be sure to drink responsibly</p>
+  </div>
+</div>
+<form action="/bars" method="post" name="searchFormIndex">
+  <div class="form-group" style="display:inline-block">
+    <label for="sIndex" class="col-form-label" style="float: left">Bars</label>
+    <input type="search" name="sIndex" value="" class="form-control" placeholder="San Francisco CA" required>
+  </div>
+  <button type="submit" class="submitBtnIndex"><i class="fa fa-search"></i></button>
+</form>
+<!-- searched items -->
+{% for business in businesses %}
+  <div class="searchedItemDiv">
+    <div class="searchedItem">
+      <!-- photo -->
+      <div class="item-photo">
+        <a href="{{ business.url }}">
+          <img src="{{ business.image_url }}" alt="{{ business.id }}" height="100%" width="100%">
+        </a>
+      </div>
+      <!-- info -->
+      <div class="item-info">
+        <p class="item-info-title">
+          {{ business.count }}. <a href="{{ business.url }}">{{ business.name }}</a>
+        </p>
+        <div class="item-info-ratings-div">
+          <div class="priceAndAliasDiv">
+            <div class="business_price">
+              <p>{{ business.price }}</p>
+            </div>
+            <div class="business_alias">
+              <ul class="list-unstyled">
+                {% for alias in business.categories %}
+                  <li style="display: inline-block;">
+                    <!-- add commas per alias and exclude last item -->
+                    {% if alias === business.categories[business.categories.length - 1] %}
+                      {{ alias.title }}
+                    {% else %}
+                      {{ alias.title }},
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- address -->
+      <div class="item-address">
+        <p>{{ business.location.address1 }},</p>
+        <p>{{ business.location.city }}  {{ business.location.state }} {{ business.location.zip_code }}</p>
+        <p>{{ business.display_phone }}</p>
+      </div>
+    </div>
+    <!-- button to let people know you are going -->
+    <div class="check-in">
+      <form action="/rsvp/{{ business.alias }}" method="post" name="rsvpForm">
+        <button class="checkInBtn">Going</button>
+      </form>
+    </div>
+    <div class="ratings-stars-div">
+      <div class="stars-info-div">
+        <img src="/assets/images/{{ business.rating }}.png" alt="{{ business.rating }} stars" width="175" height"175">
+        <p class="review_count">{{ business.review_count }} reviews</p>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <!-- This would display if the 'businesses' collection were empty -->
+  <div class="loader"></div>
+{% endfor %}
+
+{% endblock %}
