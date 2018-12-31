@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+
+{% block header %}
+  <title>Pub View Dashboard</title>
+{% endblock %}
+
+{% block content %}
+<p class="reservationTitle">You will be attending...</p>
+<div class="dashboardReservedDiv">
+  {% for business in businesses %}
+    <div class="searchedItemDiv">
+      <div class="searchedItem">
+        <!-- photo -->
+        <div class="item-photo">
+          <a href="{{ business.business_url }}">
+            <img src="{{ business.business_image }}" alt="{{ business.id }}" height="100%" width="100%">
+          </a>
+        </div>
+        <!-- info -->
+        <div class="item-info">
+          <p class="item-info-title">
+            <a href="{{ business.business_url }}">{{ business.business_name }}</a>
+          </p>
+          <div class="item-info-ratings-div">
+            <div class="priceAndAliasDiv">
+              <div class="business_price">
+                <p>{{ business.business_price }}</p>
+              </div>
+              <div class="business_alias">
+                <ul class="list-unstyled">
+                  {% for alias in business.business_categories %}
+                    <li style="display: inline-block;">
+                      <!-- add commas per alias and exclude last item -->
+                      {% if alias === business.business_categories[business.business_categories.length - 1] %}
+                        {{ alias.title }}
+                      {% else %}
+                        {{ alias.title }},
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- address -->
+        <div class="item-address">
+          <p>{{ business.business_location }}</p>
+        </div>
+      </div>
+      <!-- button to let people know you are going -->
+      <div class="check-in">
+        <form action="/delete/rsvp/{{ business._id }}" method="post" name="rsvpForm">
+          <button class="checkInBtn">Remove</button>
+        </form>
+      </div>
+      <div class="ratings-stars-div">
+        <div class="stars-info-div">
+          <img src="/assets/images/{{ business.business_ratings }}.png" alt="{{ business.business_ratings }} stars" width="175" height"175">
+          <p class="review_count">{{ business.business_reviews }} reviews</p>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <p class="noRsvpMsg">No reservations were made at this time</p>
+  {% endfor %}
+</div>
+{% endblock %}
