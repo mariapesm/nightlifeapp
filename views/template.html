@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Questrial|Lobster|Asap|Ubuntu+Condensed|Hind+Siliguri" rel="stylesheet">
+    <!-- javascript/jquery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+
+    {% block header %}{% endblock %}
+    <!-- <title></title> -->
+  </head>
+  <body>
+    {% if not user %}
+      <div class="navigation">
+        <a id="nav-logo-link" href="/">
+          <div class="navigation-logo">
+            <p><span class="navbar-brand-title-span">Pub</span> View</p>
+          </div>
+        </a>
+        <div class="navigation-links-div">
+          <form action="" method="post" name="searchFormNavigation">
+            <div class="form-group" style="display:inline-block">
+              <input type="search" name="s" value="" class="form-control">
+            </div>
+            <button type="submit" class="submitBtn"><i class="fa fa-search"></i></button>
+          </form>
+          <ul id="navigation-links" class="list-unstyled">
+            <li>
+              <a class="nav-link-btn" href="/login">Login</a>
+            </li>
+            <li>
+              <a class="nav-link-btn" href="/register">Sign-up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    {% else %}
+      <div class="navigation">
+        <a id="nav-logo-link" href="/">
+          <div class="navigation-logo">
+            <p><span class="navbar-brand-title-span">Pub</span> View</p>
+          </div>
+        </a>
+        <div class="navigation-links-div">
+          <form action="" method="post" name="searchFormNavigation">
+            <div class="form-group" style="display:inline-block">
+              <input type="search" name="s" value="" class="form-control">
+            </div>
+            <button type="submit" class="submitBtn"><i class="fa fa-search"></i></button>
+          </form>
+          <ul id="navigation-links" class="list-unstyled">
+            <li>
+              <a class="nav-link-btn" href="/logout">Logout</a>
+            </li>
+            <li>
+               <a class="nav-link-btn" href="/settings"><i class="fa fa-cog"></i></a>
+            </li>
+            <li>
+              <a class="nav-link-btn" href="/dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+    <!-- if error object has any messages -->
+    {% if error.length > 0 %}
+      <div class="flashMessage alert alert-danger" role="alert">{{ error }}</div>
+    <!-- if success object has any messages -->
+    {% elif success.length > 0 %}
+      <div class="flashMessage alert alert-success" role="alert">{{ success }}</div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
