@@ -216,7 +216,7 @@ var routes = function(app, flash, util, assert, Yelp, User, bcrypt, Business) {
     var userId = req.session.user;
     // console.log(businessAlias);
     // console.log(userId);
-    const client = Yelp.client(process.env.YELP_API_KEY);
+    const client = Yelp.client(process.env.VZhFPMXpYYNDfFSdXdQZ8yFJyO6YU_zG61j352IL-U5PyNKqa2fulZYHGPdT096kSrp0RMyJz5qstPMOha2oKVaHzQ9z-Yg07ivZOuZuNxWRs5tjeC8IurD-jk8qXHYx);
 
     client.business(businessAlias).then(function(response) {
       // console.log(response);
